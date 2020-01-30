@@ -28,7 +28,6 @@
         'security/ir.model.access.csv',
         'views/templates.xml',
         'views/openacademy.xml',
-        'views/partner.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
