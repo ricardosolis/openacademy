@@ -20,8 +20,7 @@
                   action="course_list_action"/>
 
         <!-- Acción - Item 1: Cursos  -->
-        <record model="ir.actions.act_window" 
-                id="course_list_action">
+        <record model="ir.actions.act_window" id="course_list_action">
             <field name="name">Cursos</field>
             <field name="res_model">openacademy.course</field>
             <field name="view_mode">tree,form</field>
@@ -29,6 +28,16 @@
                 <p class="o_view_nocontent_smiling_face">Create the first course</p>
             </field>
         </record>
+      
+        <record model="ir.actions.act_window" id="course_list_action">
+            <field name="name">Courses</field>
+            <field name="res_model">openacademy.course</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first course
+                </p>
+            </field>
+        </record>      
             
         <!-- Popup Menu de Objetos - Item 2: Sesiones  -->
         <menuitem id="session_menu" 
