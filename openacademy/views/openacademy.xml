@@ -1,7 +1,46 @@
 <odoo>
   <data>
       
-        <record model="ir.ui.view" id="course_form_view">
+        <!-- Menu Principal -->
+        <menuitem id="main_openacademy_menu" 
+                  name="Academia Abierta"/>
+      
+        <!-- Menu de Objetos -->
+        <menuitem id="openacademy_menu" 
+                  name="Objetos"
+                  parent="main_openacademy_menu"/>
+      
+        <!-- Popup Menu de Objetos - Item 1: Cursos  -->
+        <menuitem id="courses_menu" 
+                  name="Cursos" 
+                  parent="openacademy_menu"
+                  action="course_list_action"/>
+      
+        <!-- Popup Menu de Objetos - Item 2: Sesiones  -->
+        <menuitem id="session_menu" 
+                  name="Seiones"
+                  parent="openacademy_menu"
+                  action="session_list_action"/>
+      
+        <!-- Menu de Configuración -->
+        <menuitem id="configuration_menu" 
+                  name="Configuración"
+                  parent="main_openacademy_menu"/>
+      
+        <!-- Popup Menu de Configuración - Item 1: Contactos  -->
+        <menuitem id="contact_menu" 
+                  name="Contacts"
+                  parent="configuration_menu"
+                  action="contact_list_action"/>
+      
+        <!-- Popup Menu de Configuración - Item 2: Categorias  -->
+        <menuitem id="contact_cat_menu" 
+                  name="Categorias"
+                  parent="configuration_menu"
+                  action="contact_cat_list_action"/>
+      
+      
+      <record model="ir.ui.view" id="course_form_view">
             <field name="name">course.form</field>
             <field name="model">openacademy.course</field>
             <field name="arch" type="xml">
@@ -65,25 +104,10 @@
             <field name="res_model">openacademy.course</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
-                <p class="o_view_nocontent_smiling_face">Create the first course
-                </p>
+                <p class="o_view_nocontent_smiling_face">Create the first course</p>
             </field>
         </record>
 
-        <!-- top level menu: no parent -->
-        <menuitem id="main_openacademy_menu" name="Open Academy"/>
-        <!-- A first level in the left side menu is needed
-             before using action= attribute -->
-        <menuitem id="openacademy_menu" name="Open Academy"
-                  parent="main_openacademy_menu"/>
-        <!-- the following menuitem should appear *after*
-             its parent openacademy_menu and *after* its
-             action course_list_action -->
-        <menuitem id="courses_menu" name="Courses" parent="openacademy_menu"
-                  action="course_list_action"/>
-        <!-- Full id location:
-             action="openacademy.course_list_action"
-             It is not required when it is the same module -->
       
         <!-- session form view -->
         <record model="ir.ui.view" id="session_form_view">
@@ -129,10 +153,6 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="session_menu" name="Sessions"
-                  parent="openacademy_menu"
-                  action="session_list_action"/>
-      
         <!-- Add instructor field to existing view -->
         <record model="ir.ui.view" id="partner_instructor_form_view">
             <field name="name">partner.instructor</field>
@@ -156,11 +176,7 @@
             <field name="view_mode">tree,form</field>
         </record>
       
-        <menuitem id="configuration_menu" name="Configuration"
-                  parent="main_openacademy_menu"/>
-        <menuitem id="contact_menu" name="Contacts"
-                  parent="configuration_menu"
-                  action="contact_list_action"/>
+
 
         <record model="ir.actions.act_window" id="contact_cat_list_action">
             <field name="name">Contact Tags</field>
@@ -168,9 +184,6 @@
             <field name="view_mode">tree,form</field>
         </record>
       
-        <menuitem id="contact_cat_menu" name="Contact Tags"
-                  parent="configuration_menu"
-                  action="contact_cat_list_action"/>
 
         <record model="res.partner.category" id="teacher1">
             <field name="name">Teacher / Level 1</field>
