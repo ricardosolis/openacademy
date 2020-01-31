@@ -1,5 +1,5 @@
 <odoo>
-  <data>
+    <data>
       
         <!-- Menus -->
         <!-- ===== -->
@@ -12,55 +12,69 @@
         <menuitem id="openacademy_menu" 
                   name="Objetos" 
                   parent="main_openacademy_menu"/>
-      
-        <!-- Popup Menu de Objetos - Item 1: Cursos  -->
-        <menuitem id="courses_menu" 
-                  name="Cursos" 
-                  parent="openacademy_menu" 
-                  action="course_list_action"/>
 
-        <!-- Acción - Item 1: Cursos  -->
-        <record model="ir.actions.act_window" id="course_list_action">
+        <!-- Acción y Popup menu Objetos - Item 1: Cursos  ==================== -->
+        <record model="ir.actions.act_window" 
+                id="course_list_action">
             <field name="name">Cursos</field>
             <field name="res_model">openacademy.course</field>
             <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
+            <field name="help" 
+                   type="html">
                 <p class="o_view_nocontent_smiling_face">Create the first course</p>
             </field>
         </record>
       
-        <record model="ir.actions.act_window" id="course_list_action">
-            <field name="name">Courses</field>
-            <field name="res_model">openacademy.course</field>
+        <menuitem id="courses_menu" 
+                  name="Cursos" 
+                  parent="openacademy_menu" 
+                  action="course_list_action"/>
+        <!-- =================================================================  -->
+      
+        <!-- Acción y Popup menu Objetos - Item 2: Sesiones ==================  -->            
+        <record model="ir.actions.act_window" 
+                id="session_list_action">
+            <field name="name">Sesiones</field>
+            <field name="res_model">openacademy.session</field>
             <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-                <p class="o_view_nocontent_smiling_face">Create the first course
-                </p>
-            </field>
-        </record>      
-            
-        <!-- Popup Menu de Objetos - Item 2: Sesiones  -->
+        </record>
+
         <menuitem id="session_menu" 
                   name="Sesiones"
                   parent="openacademy_menu"
                   action="session_list_action"/>
+        <!-- =================================================================  -->
       
         <!-- Menu de Configuración -->
         <menuitem id="configuration_menu" 
                   name="Configuración"
                   parent="main_openacademy_menu"/>
       
-        <!-- Popup Menu de Configuración - Item 1: Contactos  -->
+        <!-- Acción y Popup menu Configuracion - Item 1: Contactos ===========  -->
+        <record model="ir.actions.act_window" id="contact_list_action">
+            <field name="name">Contacts</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+      
         <menuitem id="contact_menu" 
                   name="Contacts"
                   parent="configuration_menu"
                   action="contact_list_action"/>
+        <!-- =================================================================  -->
       
-        <!-- Popup Menu de Configuración - Item 2: Categorias  -->
+        <!-- Acción y Popup menu Configuracion - Item 1: Categorias ==========  -->
+        <record model="ir.actions.act_window" id="contact_cat_list_action">
+            <field name="name">Contact Tags</field>
+            <field name="res_model">res.partner.category</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+      
         <menuitem id="contact_cat_menu" 
                   name="Categorias"
                   parent="configuration_menu"
                   action="contact_cat_list_action"/>
+        <!-- =================================================================  -->      
       
       
       <record model="ir.ui.view" id="course_form_view">
@@ -162,12 +176,6 @@
             </field>
         </record>
       
-        <record model="ir.actions.act_window" id="session_list_action">
-            <field name="name">Sessions</field>
-            <field name="res_model">openacademy.session</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
         <!-- Add instructor field to existing view -->
         <record model="ir.ui.view" id="partner_instructor_form_view">
             <field name="name">partner.instructor</field>
@@ -185,19 +193,9 @@
             </field>
         </record>
 
-        <record model="ir.actions.act_window" id="contact_list_action">
-            <field name="name">Contacts</field>
-            <field name="res_model">res.partner</field>
-            <field name="view_mode">tree,form</field>
-        </record>
       
 
 
-        <record model="ir.actions.act_window" id="contact_cat_list_action">
-            <field name="name">Contact Tags</field>
-            <field name="res_model">res.partner.category</field>
-            <field name="view_mode">tree,form</field>
-        </record>
       
 
         <record model="res.partner.category" id="teacher1">
@@ -208,5 +206,5 @@
             <field name="name">Teacher / Level 2</field>
         </record>      
       
-  </data>
+    </data>
 </odoo>
