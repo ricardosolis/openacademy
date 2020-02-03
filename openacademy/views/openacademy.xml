@@ -16,7 +16,7 @@
         <!-- Acción y Popup menu Objetos - Item 1: Cursos  ==================== -->
         <record model="ir.actions.act_window" 
                 id="course_list_action">
-            <field name="name">Cursos</field>
+            <field name="name">Cursos del pensum</field>
             <field name="res_model">openacademy.course</field>
             <field name="view_mode">tree,form</field>
             <field name="help" 
@@ -34,7 +34,7 @@
         <!-- Acción y Popup menu Objetos - Item 2: Sesiones ==================  -->            
         <record model="ir.actions.act_window" 
                 id="session_list_action">
-            <field name="name">Sesiones</field>
+            <field name="name">Sesiones programadas</field>
             <field name="res_model">openacademy.session</field>
             <field name="view_mode">tree,form</field>
         </record>
@@ -52,7 +52,7 @@
       
         <!-- Acción y Popup menu Configuracion - Item 1: Contactos ===========  -->
         <record model="ir.actions.act_window" id="contact_list_action">
-            <field name="name">Contacts</field>
+            <field name="name">Contactos</field>
             <field name="res_model">res.partner</field>
             <field name="view_mode">tree,form</field>
         </record>
@@ -65,7 +65,7 @@
       
         <!-- Acción y Popup menu Configuracion - Item 1: Categorias ==========  -->
         <record model="ir.actions.act_window" id="contact_cat_list_action">
-            <field name="name">Contact Tags</field>
+            <field name="name">Categorias</field>
             <field name="res_model">res.partner.category</field>
             <field name="view_mode">tree,form</field>
         </record>
