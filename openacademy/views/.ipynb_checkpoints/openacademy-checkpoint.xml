@@ -29,6 +29,62 @@
                   name="Cursos" 
                   parent="openacademy_menu" 
                   action="course_list_action"/>
+
+        <!-- Panel de busqueda del Objeto Curso =============================  -->
+        <record model="ir.ui.view" id="course_search_view">
+            <field name="name">course.search</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="description"/>
+                </search>
+            </field>
+        </record> 
+
+        <!-- Se redefine el list view generado automaticamente para Curso === -->
+        <record model="ir.ui.view" id="course_tree_view">
+            <field name="name">course.tree</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="name"/>
+                    <field name="responsible_id"/>
+                </tree>
+            </field>
+        </record>        
+        
+        <!-- Forma del Objeto Curso =========================================  -->
+        <record model="ir.ui.view" id="course_form_view">
+            <field name="name">course.form</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <form string="Course Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="responsible_id"/>                            
+                        </group>
+                        <notebook>
+                            <page string="Description">
+                                <field name="description"/>
+                            </page>
+                            <page string="Sessions">
+                                <field name="session_ids">
+                                    <tree string="Registered sessions">
+                                        <field name="name"/>
+                                        <field name="instructor_id"/>
+                                    </tree>
+                                </field>
+                            </page>                            
+                            <page string="About v.1">
+                                This is an example of notebooks
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>   
         <!-- =================================================================  -->
       
         <!-- Acción y Popup menu Objetos - Item 2: Sesiones ==================  -->            
@@ -76,67 +132,6 @@
                   action="contact_cat_list_action"/>
         <!-- =================================================================  -->      
       
-      
-      <record model="ir.ui.view" id="course_form_view">
-            <field name="name">course.form</field>
-            <field name="model">openacademy.course</field>
-            <field name="arch" type="xml">
-                <form string="Course Form">
-                    <sheet>
-                        <group>
-                            <field name="name"/>
-                            <field name="responsible_id"/>                            
-                        </group>
-                        <notebook>
-                            <page string="Description">
-                                <field name="description"/>
-                            </page>
-                            <page string="Sessions">
-                                <field name="session_ids">
-                                    <tree string="Registered sessions">
-                                        <field name="name"/>
-                                        <field name="instructor_id"/>
-                                    </tree>
-                                </field>
-                            </page>                            
-                            <page string="About v.1">
-                                This is an example of notebooks
-                            </page>
-                        </notebook>
-                    </sheet>
-                </form>
-            </field>
-        </record>   
-      
-        <record model="ir.ui.view" id="course_search_view">
-            <field name="name">course.search</field>
-            <field name="model">openacademy.course</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="name"/>
-                    <field name="description"/>
-                </search>
-            </field>
-        </record>      
-
-        <!-- override the automatically generated list view for courses -->
-        <record model="ir.ui.view" id="course_tree_view">
-            <field name="name">course.tree</field>
-            <field name="model">openacademy.course</field>
-            <field name="arch" type="xml">
-                <tree string="Course Tree">
-                    <field name="name"/>
-                    <field name="responsible_id"/>
-                </tree>
-            </field>
-        </record>
-      
-        <!-- window action -->
-        <!--
-            The following tag is an action definition for a "window action",
-            that is an action opening a view or a set of views
-        -->
-
       
         <!-- session form view -->
         <record model="ir.ui.view" id="session_form_view">
