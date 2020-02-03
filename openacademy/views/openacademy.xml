@@ -19,10 +19,10 @@
             <field name="name">Cursos del pensum</field>
             <field name="res_model">openacademy.course</field>
             <field name="view_mode">tree,form</field>
-            <field name="help" 
+<!--             <field name="help" 
                    type="html">
                 <p class="o_view_nocontent_smiling_face">Create the first course</p>
-            </field>
+            </field> -->
         </record>
       
         <menuitem id="courses_menu" 
@@ -85,7 +85,6 @@
                 </form>
             </field>
         </record>   
-        <!-- =================================================================  -->
       
         <!-- Acción y Popup menu Objetos - Item 2: Sesiones ==================  -->            
         <record model="ir.actions.act_window" 
@@ -99,41 +98,22 @@
                   name="Sesiones"
                   parent="openacademy_menu"
                   action="session_list_action"/>
-        <!-- =================================================================  -->
-      
-        <!-- Menu de Configuración -->
-        <menuitem id="configuration_menu" 
-                  name="Configuración"
-                  parent="main_openacademy_menu"/>
-      
-        <!-- Acción y Popup menu Configuracion - Item 1: Contactos ===========  -->
-        <record model="ir.actions.act_window" id="contact_list_action">
-            <field name="name">Contactos</field>
-            <field name="res_model">res.partner</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-      
-        <menuitem id="contact_menu" 
-                  name="Contacts"
-                  parent="configuration_menu"
-                  action="contact_list_action"/>
-        <!-- =================================================================  -->
-      
-        <!-- Acción y Popup menu Configuracion - Item 1: Categorias ==========  -->
-        <record model="ir.actions.act_window" id="contact_cat_list_action">
-            <field name="name">Categorias</field>
-            <field name="res_model">res.partner.category</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-      
-        <menuitem id="contact_cat_menu" 
-                  name="Categorias"
-                  parent="configuration_menu"
-                  action="contact_cat_list_action"/>
-        <!-- =================================================================  -->      
-      
-      
-        <!-- session form view -->
+        
+        <!-- No se redefine search view generado automaticamente para Sesion =  -->
+        
+        <!-- List view para Objeto Sesion ====================================  -->
+        <record model="ir.ui.view" id="session_tree_view">
+            <field name="name">session.tree</field>
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <tree string="Session Tree">
+                    <field name="name"/>
+                    <field name="course_id"/>
+                </tree>
+            </field>
+        </record>        
+        
+        <!-- Forma del Objeto Sesion =========================================  -->
         <record model="ir.ui.view" id="session_form_view">
             <field name="name">session.form</field>
             <field name="model">openacademy.session</field>
@@ -158,20 +138,29 @@
                 </form>
             </field>
         </record>
+      
+        <!-- Menu de Configuración -->
+        <menuitem id="configuration_menu" 
+                  name="Configuración"
+                  parent="main_openacademy_menu"/>
 
-        <!-- session tree/list view -->
-        <record model="ir.ui.view" id="session_tree_view">
-            <field name="name">session.tree</field>
-            <field name="model">openacademy.session</field>
-            <field name="arch" type="xml">
-                <tree string="Session Tree">
-                    <field name="name"/>
-                    <field name="course_id"/>
-                </tree>
-            </field>
+        <!-- Acción y Popup menu Configuracion - Item 1: Contactos ===========  -->
+        <record model="ir.actions.act_window" id="contact_list_action">
+            <field name="name">Contactos</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
         </record>
       
-        <!-- Add instructor field to existing view -->
+        <menuitem id="contact_menu" 
+                  name="Contacts"
+                  parent="configuration_menu"
+                  action="contact_list_action"/>
+
+        <!-- No se redefine search view para el objeto Partner ===============  -->
+        
+        <!-- No se redefine list view para el objeto Partner =================  -->
+        
+        <!-- Se adiciona Instructor y Sesiones a la Forma existente de Partner  -->
         <record model="ir.ui.view" id="partner_instructor_form_view">
             <field name="name">partner.instructor</field>
             <field name="model">res.partner</field>
@@ -187,17 +176,31 @@
                 </notebook>
             </field>
         </record>
-
+        
+        <!-- Acción y Popup menu Configuracion - Item 1: Categorias ==========  -->
+        <record model="ir.actions.act_window" id="contact_cat_list_action">
+            <field name="name">Categorias</field>
+            <field name="res_model">res.partner.category</field>
+            <field name="view_mode">tree,form</field>
+        </record>
       
+        <menuitem id="contact_cat_menu" 
+                  name="Categorias"
+                  parent="configuration_menu"
+                  action="contact_cat_list_action"/>
 
-
-      
-
-        <record model="res.partner.category" id="teacher1">
+        <!-- No se redefine search view para el objeto Categoria =============  -->
+        
+        <!-- No se redefine list view para el objeto Categoria ===============  -->
+        
+        <!-- Se crean dos categorias adicionales =============================  -->
+        <record model="res.partner.category" 
+                id="teacher1">
             <field name="name">Teacher / Level 1</field>
         </record>
       
-        <record model="res.partner.category" id="teacher2">
+        <record model="res.partner.category" 
+                id="teacher2">
             <field name="name">Teacher / Level 2</field>
         </record>      
       
