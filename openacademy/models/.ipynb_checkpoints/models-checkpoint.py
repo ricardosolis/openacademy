@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api, exceptions1
+from odoo import models, fields, api, exceptions
 
 
 class Course(models.Model):
