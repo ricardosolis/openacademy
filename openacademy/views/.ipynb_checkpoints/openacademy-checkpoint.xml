@@ -124,12 +124,24 @@
             </field>
         </record>
         
+        <!-- Graph view ======================================================  -->            
+        <record model="ir.ui.view" id="openacademy_session_graph_view">
+            <field name="name">openacademy.session.graph</field>
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <graph string="Participations by Courses">
+                    <field name="course_id"/>
+                    <field name="attendees_count" type="measure"/>
+                </graph>
+            </field>
+        </record>        
+        
         <!-- Acción y Popup menu Objetos - Item 2: Sesiones ==================  -->            
         <record model="ir.actions.act_window" 
                 id="session_list_action">
             <field name="name">Sesiones programadas</field>
             <field name="res_model">openacademy.session</field>
-            <field name="view_mode">tree,form,calendar,gantt</field>
+            <field name="view_mode">tree,form,calendar,gantt,graph</field>
         </record>
 
         <menuitem id="session_menu" 
