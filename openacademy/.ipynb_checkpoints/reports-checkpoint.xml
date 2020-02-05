@@ -1,5 +1,6 @@
 <odoo>
 
+    <!-- Primer reporte en QWeb -->
     <report
         id="report_session"
         model="openacademy.session"
