@@ -111,7 +111,7 @@
         </record>
 
         <!-- Gantt Chart =====================================================  --> 
-        <record model="ir.ui.view" id="session_gantt_view">
+<!--         <record model="ir.ui.view" id="session_gantt_view">
             <field name="name">session.gantt</field>
             <field name="model">openacademy.session</field>
             <field name="arch" type="xml">
@@ -122,7 +122,7 @@
                 <!-- <field name="name"/> this is not required after Odoo 10.0  -->
                 </gantt>
             </field>
-        </record>
+        </record> -->
         
         <!-- Graph view ======================================================  -->            
         <record model="ir.ui.view" id="openacademy_session_graph_view">
@@ -191,7 +191,8 @@
                 id="session_list_action">
             <field name="name">Sesiones programadas</field>
             <field name="res_model">openacademy.session</field>
-            <field name="view_mode">tree,form,calendar,gantt,graph,kanban</field>
+            <field name="view_mode">tree,form,calendar,graph,kanban</field>
+<!--             <field name="view_mode">tree,form,calendar,gantt,graph,kanban</field> -->
         </record>
 
         <menuitem id="session_menu" 
