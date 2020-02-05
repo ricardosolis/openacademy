@@ -119,10 +119,9 @@
                        date_start="start_date" 
                        date_delay="hours"
                        default_group_by='instructor_id'>
-                <!-- <field name="name"/> this is not required after Odoo 10.0  -->
                 </gantt>
             </field>
-        </record> -->
+        </record>  -->
         
         <!-- Graph view ======================================================  -->            
         <record model="ir.ui.view" id="openacademy_session_graph_view">
