@@ -12,7 +12,8 @@
             <field name="name">Sessions</field>
             <field name="res_model">openacademy.session</field>
             <field name="view_mode">calendar</field>
-            <field name="view_id" ref="openacademy.session_calendar_view"/>
+            <field name="view_id" 
+                   ref="openacademy.session_calendar_view"/>
         </record>
         <record model="ir.actions.act_window" id="act_course_list">
             <field name="name">Courses</field>
@@ -23,7 +24,8 @@
             <field name="name">Session Dashboard Form</field>
             <field name="model">board.board</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
+            <field name="arch" 
+                   type="xml">
                 <form string="Session Dashboard">
                     <board style="2-1">
                         <column>
